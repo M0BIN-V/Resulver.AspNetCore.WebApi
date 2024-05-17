@@ -2,11 +2,11 @@
 
 namespace Resulver.AspNetCore.WebApi.ErrorHandling;
 
-internal class ErrorHandler : IErrorHandler
+internal class ResultErrorHandler : IResultErrorHandler
 {
-    readonly List<ErrorWithStatusCode> _errors;
+    readonly List<ResultErrorWithStatusCode> _errors;
 
-    public ErrorHandler(List<ErrorWithStatusCode> errors)
+    public ResultErrorHandler(List<ResultErrorWithStatusCode> errors)
     {
         _errors = errors;
     }

@@ -2,7 +2,7 @@
 
 namespace Resulver.AspNetCore.WebApi.ErrorHandling;
 
-public interface IErrorHandler
+public interface IResultErrorHandler
 {
     public int GetErrorStatusCode(IResultError error);
 }

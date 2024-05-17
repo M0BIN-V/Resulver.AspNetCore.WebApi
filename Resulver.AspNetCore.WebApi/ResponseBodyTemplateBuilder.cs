@@ -12,7 +12,7 @@ public static class ResponseBodyTemplateBuilder
             Content = result.Content,
             Message = result.Message,
             Error = result.IsFailure ?
-            new ErrorResponse
+            new ResultErrorResponse
             {
                 ErrorName = result.Error!.GetType().Name,
                 Message = result.Error.Message,

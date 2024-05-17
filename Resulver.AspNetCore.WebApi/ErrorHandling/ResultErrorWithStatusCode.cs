@@ -1,6 +1,6 @@
 ﻿namespace Resulver.AspNetCore.WebApi.ErrorHandling;
 
-public class ErrorWithStatusCode
+public class ResultErrorWithStatusCode
 {
     public required Type Error { get; set; }
     public int StatusCode { get; set; }

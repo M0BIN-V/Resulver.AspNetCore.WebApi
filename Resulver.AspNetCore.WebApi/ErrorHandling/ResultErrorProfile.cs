@@ -1,13 +1,13 @@
 ﻿namespace Resulver.AspNetCore.WebApi.ErrorHandling;
 
-public class ErrorProfile
+public class ResultErrorProfile
 {
-    public List<ErrorWithStatusCode> Errors { get; } = [];
+    public List<ResultErrorWithStatusCode> Errors { get; } = [];
 
-    protected ErrorWithStatusCode AddError<TError>()
+    protected ResultErrorWithStatusCode AddError<TError>()
         where TError : IResultError
     {
-        var errorWithStatus = new ErrorWithStatusCode
+        var errorWithStatus = new ResultErrorWithStatusCode
         {
             Error = typeof(TError)
         };

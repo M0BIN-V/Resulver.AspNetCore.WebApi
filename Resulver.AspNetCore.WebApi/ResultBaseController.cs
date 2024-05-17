@@ -5,9 +5,9 @@ namespace Resulver.AspNetCore.WebApi;
 
 public class ResultBaseController : ControllerBase
 {
-    readonly IErrorHandler _errorHandler;
+    readonly IResultErrorHandler _errorHandler;
 
-    public ResultBaseController(IErrorHandler errorHandler)
+    public ResultBaseController(IResultErrorHandler errorHandler)
     {
         _errorHandler = errorHandler;
     }
