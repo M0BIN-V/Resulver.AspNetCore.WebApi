@@ -6,7 +6,17 @@
     <Nullable>enable</Nullable>
     <Title>Resulver.AspNetCore.WebApi</Title>
     <Description>Clean implementation of Result Pattern for Asp Core Web API appcliations</Description>
+    <PackageIcon>ResulverLogo.png</PackageIcon>
+    <RepositoryUrl>https://github.com/M0BIN-V/Resulver.AspNetCore.WebApi.git</RepositoryUrl>
+    <Version>1.0.3</Version>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\..\..\Illustrator\Resulver\ResulverLogo.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
