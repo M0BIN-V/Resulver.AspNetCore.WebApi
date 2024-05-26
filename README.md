@@ -5,7 +5,6 @@
     - [Usage](#3-Usage)
        - [Use results as response]
        - [Result error handlers] 
-- [Use in Asp core web api](https://github.com/M0BIN-V/Resulver.AspNetCore.WebApi)
 
 
 
