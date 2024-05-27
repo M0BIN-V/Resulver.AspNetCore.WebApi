@@ -26,6 +26,20 @@
   
   You can change it to any other type you want.
 
-  ## 3. Usage
-   ```csharp
-   ```
+  ## Usage
+  ### 1. Create controller
+
+  ```csharp
+  using Microsoft.AspNetCore.Mvc;
+  using Resulver.AspNetCore.WebApi;
+  using Resulver.AspNetCore.WebApi.ErrorHandling;
+
+  namespace MyApplication.Controllers;
+
+  [ApiController]
+  [Route("api/[controller]")]
+  public class MyController : ResultBaseController
+  {
+      public MyController(IResultErrorHandler errorHandler) : base(errorHandler) {}
+  }
+  ```
