@@ -3,7 +3,7 @@
     - [Installing](#1-Installing-package)
     - [Create result class](#2-Create-result-class)
     - [Usage](#3-Usage)
-       - [Create controller](#Create-controller)
+       - [Create controller](#Create-Controller)
        - [Error handler profiles]
        - [Use results as response]
        - [Result error handlers] 
