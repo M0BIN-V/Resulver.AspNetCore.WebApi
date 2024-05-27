@@ -32,12 +32,6 @@
   ### 1. Create controller
 
   ```csharp
-  using Microsoft.AspNetCore.Mvc;
-  using Resulver.AspNetCore.WebApi;
-  using Resulver.AspNetCore.WebApi.ErrorHandling;
-
-  namespace MyApplication.Controllers;
-
   [ApiController]
   [Route("api/[controller]")]
   public class MyController : ResultBaseController
