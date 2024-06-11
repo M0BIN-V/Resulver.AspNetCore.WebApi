@@ -12,18 +12,28 @@ public class ResultBaseController : ControllerBase
         _errorHandler = errorHandler;
     }
 
-    public IActionResult FromResult<TResultContent>(IResult<TResultContent> result, int SuccessStatusCode)
+    public IActionResult FromResult<TResultContent>(Result<TResultContent> result, int successStatusCode)
     {
-        var response = ResponseBodyTemplateBuilder.Build(result);
-
-        if (result.IsFailure)
-        {
-            SuccessStatusCode = _errorHandler.GetErrorStatusCode(result.Error!);
-        }
+        var response = result.ToResponseBody();
 
         return new ObjectResult(response)
         {
-            StatusCode = SuccessStatusCode,
+            StatusCode = GetResultStatusCode(result.Errors, successStatusCode)
         };
+    }
+
+    public IActionResult FromResult(IResult result, int successStatusCode)
+    {
+        var response = result.ToResponseBody();
+
+        return new ObjectResult(response)
+        {
+            StatusCode = GetResultStatusCode(result.Errors, successStatusCode)
+        };
+    }
+
+    int GetResultStatusCode(List<IResultError> errors, int successStatusCode)
+    {
+        return errors.Count > 0 ? _errorHandler.GetErrorStatusCode(errors[0]) : successStatusCode;
     }
 }

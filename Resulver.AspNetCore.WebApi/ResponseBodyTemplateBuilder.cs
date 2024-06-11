@@ -1,5 +1,4 @@
 ﻿using Resulver.AspNetCore.WebApi.ErrorHandling;
-using System.Runtime.CompilerServices;
 
 namespace Resulver.AspNetCore.WebApi;
 
@@ -12,18 +11,29 @@ public static class ResponseBodyTemplateBuilder
         {
             Content = result.Content,
             Message = result.Message,
-            Error = result.IsFailure ?
-            new ResultErrorResponse
+            Error = result.Errors.ConvertAll(e => new ResultErrorResponse()
             {
-                ErrorName = result.Error!.GetType().Name,
-                Message = result.Error.Message,
-            } : null
+                ErrorName = e.GetType().Name,
+                Message = e.Message,
+            })
+        };
+    }
+
+    public static ResponseBodyTemplate Build(IResult result)
+    {
+        return new ResponseBodyTemplate
+        {
+            Message = result.Message,
+            Error = result.Errors.ConvertAll(e => new ResultErrorResponse()
+            {
+                ErrorName = e.GetType().Name,
+                Message = e.Message,
+            })
         };
     }
 
     public static ResponseBodyTemplate<TContent> ToResponseBody<TContent>
-        (this IResult<TContent> result)
-    {
-        return Build(result);
-    }
+        (this IResult<TContent> result) => Build(result);
+
+    public static ResponseBodyTemplate ToResponseBody(this IResult result) => Build(result);
 }
