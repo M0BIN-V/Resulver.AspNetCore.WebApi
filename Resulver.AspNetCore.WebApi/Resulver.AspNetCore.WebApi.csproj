@@ -8,7 +8,7 @@
     <Description>Clean implementation of Result Pattern for Asp Core Web API appcliations</Description>
     <PackageIcon>ResulverLogo.png</PackageIcon>
     <RepositoryUrl>https://github.com/M0BIN-V/Resulver.AspNetCore.WebApi.git</RepositoryUrl>
-    <Version>1.1.4</Version>
+    <Version>1.1.5</Version>
   </PropertyGroup>
 
   <ItemGroup>
