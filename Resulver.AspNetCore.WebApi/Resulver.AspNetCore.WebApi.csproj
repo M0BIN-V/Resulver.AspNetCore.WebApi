@@ -12,26 +12,19 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="..\..\..\..\Design\Illustrator\Resulver\ResulverLogo.png">
-      <Pack>True</Pack>
-      <PackagePath>\</PackagePath>
-    </None>
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
-    <PackageReference Include="Resulver" Version="1.1.5" />
+    <PackageReference Include="Resulver" Version="1.2.4" />
   </ItemGroup>
 
   <ItemGroup>
-    <Reference Include="Microsoft.AspNetCore.Mvc">
-      <HintPath>C:\Program Files\dotnet\packs\Microsoft.AspNetCore.App.Ref\8.0.5\ref\net8.0\Microsoft.AspNetCore.Mvc.dll</HintPath>
+    <Reference Include="Microsoft.AspNetCore.Http">
+      <HintPath>bin\Release\net8.0\Microsoft.AspNetCore.Http.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.AspNetCore.Mvc.Abstractions">
-      <HintPath>C:\Program Files\dotnet\packs\Microsoft.AspNetCore.App.Ref\8.0.5\ref\net8.0\Microsoft.AspNetCore.Mvc.Abstractions.dll</HintPath>
+    <Reference Include="Microsoft.AspNetCore.Http.Abstractions">
+      <HintPath>bin\Release\net8.0\Microsoft.AspNetCore.Http.Abstractions.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.AspNetCore.Mvc.Core">
-      <HintPath>C:\Program Files\dotnet\packs\Microsoft.AspNetCore.App.Ref\8.0.5\ref\net8.0\Microsoft.AspNetCore.Mvc.Core.dll</HintPath>
+    <Reference Include="Microsoft.AspNetCore.Http.Results">
+      <HintPath>C:\Program Files\dotnet\packs\Microsoft.AspNetCore.App.Ref\8.0.7\ref\net8.0\Microsoft.AspNetCore.Http.Results.dll</HintPath>
     </Reference>
   </ItemGroup>
 
