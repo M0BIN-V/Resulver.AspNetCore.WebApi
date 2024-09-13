@@ -17,15 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Reference Include="Microsoft.AspNetCore.Http">
-      <HintPath>bin\Release\net8.0\Microsoft.AspNetCore.Http.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.AspNetCore.Http.Abstractions">
-      <HintPath>bin\Release\net8.0\Microsoft.AspNetCore.Http.Abstractions.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.AspNetCore.Http.Results">
-      <HintPath>C:\Program Files\dotnet\packs\Microsoft.AspNetCore.App.Ref\8.0.7\ref\net8.0\Microsoft.AspNetCore.Http.Results.dll</HintPath>
-    </Reference>
+	  <FrameworkReference Include="Microsoft.AspNetCore.App" />
   </ItemGroup>
 
 </Project>

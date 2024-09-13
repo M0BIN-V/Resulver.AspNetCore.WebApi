@@ -1,14 +1,19 @@
-﻿namespace Resulver.AspNetCore.WebApi.ErrorHandling;
+﻿using Microsoft.AspNetCore.Mvc;
+
+namespace Resulver.AspNetCore.WebApi.ErrorHandling;
 
 public class ErrorResponse
 {
     public int StatusCode { get; private set; }
-    public Func<ResultError, IResult> Handler { get; private set; }
+    public Func<ResultError, IActionResult> Handler { get; private set; }
     public Type ErrorType { get; }
 
     public ErrorResponse(Type errorType)
     {
-        Handler = error => Results.BadRequest(error);
+        Handler = error => new ObjectResult(error)
+        {
+            StatusCode = StatusCodes.Status400BadRequest
+        };
         ErrorType = errorType;
     }
 
@@ -17,7 +22,7 @@ public class ErrorResponse
         StatusCode = statusCode;
     }
 
-    public ErrorResponse HandleWith(Func<ResultError, IResult> handler)
+    public ErrorResponse HandleWith(Func<ResultError, IActionResult> handler)
     {
         Handler = handler;
 

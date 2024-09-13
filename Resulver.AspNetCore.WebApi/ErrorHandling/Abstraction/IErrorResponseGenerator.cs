@@ -1,6 +1,8 @@
-﻿namespace Resulver.AspNetCore.WebApi.ErrorHandling.Abstraction;
+﻿using Microsoft.AspNetCore.Mvc;
+
+namespace Resulver.AspNetCore.WebApi.ErrorHandling.Abstraction;
 
 public interface IErrorResponseGenerator
 {
-    public IResult MakeResponse(ResultError error);
+    public IActionResult MakeResponse(ResultError error);
 }

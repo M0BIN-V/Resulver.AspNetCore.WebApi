@@ -1,8 +1,9 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
+using Resulver.AspNetCore.WebApi.ErrorHandling;
 using System.Reflection;
 
-namespace Persistence;
+namespace Resulver.AspNetCore.WebApi;
 
 public static class DependencyInjection
 {
@@ -17,21 +18,21 @@ public static class DependencyInjection
     public static IServiceCollection AddErrorProfilesFromAssembly(
         this IServiceCollection services, Assembly assembly)
     {
-        var profiles = assembly
-            .GetTypes()
-            .Where(t => !t.IsAbstract && !t.IsInterface &&
-                t.IsAssignableTo(typeof(ErrorProfile)))
-            .Select(t => ServiceDescriptor.Singleton(typeof(ErrorProfile), t));
+        var errorProfiles = assembly
+           .GetTypes()
+           .Where(type => !type.IsAbstract && !type.IsInterface && type.IsAssignableTo(typeof(ErrorProfile)))
+           .Select(profileType => (Activator.CreateInstance(profileType) as ErrorProfile)!);
 
-        services.TryAddEnumerable(profiles);
+        var serviceDescriptors = errorProfiles.Select(ServiceDescriptor.Singleton);
+
+        services.TryAddEnumerable(serviceDescriptors);
 
         return services;
     }
 
-    public static IServiceCollection AddErrorResponseGenerator<TErrorProfile>(this IServiceCollection services)
-        where TErrorProfile : ErrorProfile
+    public static IServiceCollection AddErrorResponseGenerator(this IServiceCollection services)
     {
-        services.AddSingleton<TErrorProfile>();
+        services.AddScoped<IErrorResponseGenerator, ErrorResponseGenerator>();
 
         return services;
     }

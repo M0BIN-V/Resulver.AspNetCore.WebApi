@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Resulver.AspNetCore.WebApi.ErrorHandling;
 
@@ -8,13 +9,16 @@ public class ErrorResponseGenerator : IErrorResponseGenerator
 
     public ErrorResponseGenerator(IServiceProvider serviceProvider)
     {
-        foreach (var errorResponse in serviceProvider.GetServices<ErrorResponse>())
+        foreach (var errorProfile in serviceProvider.GetServices<ErrorProfile>())
         {
-            _errorResponses.Add(errorResponse.ErrorType, errorResponse);
+            foreach (var response in errorProfile.ErrorResponses)
+            {
+                _errorResponses.Add(response.ErrorType, response);
+            }
         }
     }
 
-    public IResult MakeResponse(ResultError error)
+    public IActionResult MakeResponse(ResultError error)
     {
         var errorResponse = _errorResponses.GetValueOrDefault(error.GetType())
             ?? throw new Exception($"Error profile for '{error.GetType().Name}' is not defined !");
