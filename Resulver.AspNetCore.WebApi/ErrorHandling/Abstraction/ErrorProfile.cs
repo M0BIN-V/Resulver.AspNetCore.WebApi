@@ -2,12 +2,12 @@
 
 public abstract class ErrorProfile
 {
-    public List<ErrorResponse> ErrorResponses { get; private set; } = [];
+    public List<ErrorResponseHandler> ErrorResponses { get; } = [];
 
-    protected ErrorResponse AddError<TError>()
+    protected ErrorResponseHandler AddError<TError>()
         where TError : ResultError
     {
-        var errorResponse = new ErrorResponse(typeof(TError));
+        var errorResponse = new ErrorResponseHandler(typeof(TError));
 
         ErrorResponses.Add(errorResponse);
 

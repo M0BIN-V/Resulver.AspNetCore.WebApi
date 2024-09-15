@@ -2,13 +2,13 @@
 
 namespace Resulver.AspNetCore.WebApi.ErrorHandling;
 
-public class ErrorResponse
+public class ErrorResponseHandler
 {
     public int StatusCode { get; private set; } = StatusCodes.Status400BadRequest;
     public Func<ResultError, IActionResult> Handler { get; private set; }
     public Type ErrorType { get; }
 
-    public ErrorResponse(Type errorType)
+    public ErrorResponseHandler(Type errorType)
     {
         Handler = error => new ObjectResult(error)
         {
@@ -22,7 +22,7 @@ public class ErrorResponse
         StatusCode = statusCode;
     }
 
-    public ErrorResponse HandleWith(Func<ResultError, IActionResult> handler)
+    public ErrorResponseHandler HandleWith(Func<ResultError, IActionResult> handler)
     {
         Handler = handler;
 

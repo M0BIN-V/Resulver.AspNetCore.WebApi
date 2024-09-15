@@ -5,7 +5,7 @@ namespace Resulver.AspNetCore.WebApi.ErrorHandling;
 
 public class ErrorResponseGenerator : IErrorResponseGenerator
 {
-    readonly Dictionary<Type, ErrorResponse> _errorResponses = [];
+    readonly Dictionary<Type, ErrorResponseHandler> _errorResponses = [];
 
     public ErrorResponseGenerator(IServiceProvider serviceProvider)
     {
