@@ -8,15 +8,15 @@
     <Description>Clean implementation of Result Pattern and error handling for Asp Core Web API applications</Description>
     <PackageIcon>ResulverIcon.png</PackageIcon>
     <RepositoryUrl>https://github.com/M0BIN-V/Resulver.AspNetCore.WebApi.git</RepositoryUrl>
-    <Version>1.2.4</Version>
+    <Version>1.2.5</Version>
     <PackageLicenseFile>LICENCE</PackageLicenseFile>
     <PackageProjectUrl>https://github.com/M0BIN-V/Resulver.AspNetCore.WebApi</PackageProjectUrl>
     <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
-    <PackageReference Include="Resulver" Version="1.2.4" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.1" />
+    <PackageReference Include="Resulver" Version="1.2.5" />
   </ItemGroup>
 
   <ItemGroup>
